@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: black;
+    }
+    #about {
+      padding: 80px 0;
+      color: #ababab;
+    }
+    .row {
+      display: flex;
+      padding: 0;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    img {
+      height: 400px;
+      width: 300px;
+    }
+    .about-col-1 {
+      flex-basis: 35%;
+    }
+    .about-col-2 {
+      flex-basis: 60%;
+    }
+    .about-col-1 img {
+      width: 100%;
+      border-radius: 15px;
+    }
+    .sub-title {
+      font-size: 60px;
+      font-weight: 600;
+      color: white;
+    }
+    .tab-tittle {
+      display: flex;
+      margin: 20px 0 40px;
+    }
+    .tab-links {
+      margin-right: 50px;
+      font-size: 18px;
+      cursor: pointer;
+      font-weight: 400;
+      position: relative;
+    }
+    .tab-links::after {
+      content: '';
+      width: 0;
+      height: 3px;
+      background: #ff004f;
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      transition: 0.5s;
+    }
+    .tab-links.active-link::after {
+      width: 50%;
+    }
+    .tab-contents ul li {
+      list-style: none;
+      margin: 10px 0;
+    }
+    .tab-contents ul li span {
+      color: #ff004f;
+      font-size: 14px;
+    }
+    .tab-contents {
+      display: none;
+    }
+    .tab-contents.active-tab {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div id="about">
+    <div class="container">
+      <div class="row">
+        <div class="about-col-1">
+          <img src="images/bcg.JPG" alt="">
+        </div>
+        <div class="about-col-2">
+          <h1 class="sub-title">About me</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero quas eius consequatur deserunt voluptates rerum iusto officiis, quam voluptate nihil error similique expedita esse ea sit, earum rem eveniet libero culpa voluptatum sint! Iure possimus deleniti aliquid odio consequatur suscipit nam tempora impedit, tenetur id at ab officiis laborum voluptatem earum assumenda quos optio! Molestias veritatis voluptates, aliquid consequuntur quis aut ea quod iure cum sunt laboriosam adipisci dolorum recusandae pariatur, harum iste atque rem, doloremque blanditiis? Unde fugit error animi voluptate corporis est, maiores eveniet! Doloremque, sunt. Omnis incidunt illo, praesentium quia, repellendus natus magni quo ipsa nulla blanditiis quod! Ex commodi perferendis repellendus quae! Sequi deleniti et amet quas ad asperiores iusto nisi aut, aperiam doloremque sunt corporis omnis neque labore reprehenderit ex cumque optio officia suscipit vitae quibusdam dicta molestias alias! Error, nemo natus quaerat iusto quibusdam aliquam minima reprehenderit ab? Sequi quasi ea rem ipsa delectus!
+          </p>
+          <div class="tab-tittle">
+            <p class="tab-links active-link" onclick="opentab('Skills')">Skills</p>
+            <p class="tab-links" onclick="opentab('Experience')">Experience</p>
+            <p class="tab-links" onclick="opentab('Education')">Education</p>
+          </div>
+          <div class="tab-contents active-tab" id="Skills">
+            <ul>
+              <li><span>Java Programming</span><br>Designing Web/App Interfaces</li>
+              <li><span>MY SQL</span><br>Database Connectivity</li>
+              <li><span>Frontend Development</span><br>Building Front page of Websites</li>
+            </ul>
+          </div>
+          <div class="tab-contents" id="Experience">
+            <ul>
+              <li><span>2020-current</span><br>Pursuing Computer Science</li>
+              <li><span>2019</span><br>Developing Java Application</li>
+              <li><span>HTML/CSS/JS</span><br>Building Front page of Websites</li>
+            </ul>
+          </div>
+          <div class="tab-contents" id="Education">
+            <ul>
+              <li><span>2018</span><br>Matric from S.C High School</li>
+              <li><span>2020</span><br>Intermediate from Fakir Mohan Jr. College</li>
+              <li><span>2023</span><br>Graduate from MPC Auto College</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname){
+      for (tablink of tablinks){
+        tablink.classList.remove("active-link");
+      }
+      for (tabcontent of tabcontents){
+        tabcontent.classList.remove("active-tab");
+      }
+      event.currentTarget.classList.add("active-link");
+      document.getElementById(tabname).classList.add("active-tab");
+    }
+  </script>
+</body>
+</html>
